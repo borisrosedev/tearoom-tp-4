@@ -19,5 +19,31 @@ az acr login --name tearoom
 
 docker tag tearoom-client tearoom.azurecr.io/tearoom-client:v1
 
+#Supprimer une application conteneurisée dans containerapp
+az containerapp delete --name tearoom-frontend --resource-group DevResourceGroup --yes
+
 az containerapp env create --name tearoom-env --resource-group DevResourceGroup --location francecentral
 ```
+
+
+### Créer l'application Front-End
+```bash
+az containerapp create \
+    --name tearoom-client \
+    --resource-group DevResourceGroup \
+    --environment tearoom-env \
+    --image tearoom.azurecr.io/tearoom-client:v3 \
+    --target-port 80 \
+    --ingress external \
+    --registry-server tearoom.azurecr.io
+```
+
+
+## Docker 
+
+Forcer le nettoyage du cache
+```bash
+docker compose build --no-cache
+#Alternative au docker compose down
+docker compose up --force-recreate
+``

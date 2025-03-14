@@ -2,7 +2,7 @@ export default function loginPage () {
     return `
     
         <main id="login-main" class="tearoom-main">
-            <section>
+            <section class="animate__animated animate__slideInUp">
             <form id="login-form">
                 <section>
                     <article>

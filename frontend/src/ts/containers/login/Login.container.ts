@@ -10,14 +10,32 @@ export default class LoginContainer {
 
     async onSubmit (event:any) {
         
-    event.preventDefault()
-    console.log('hello submit')
-    //     const responseFromServer = fetch('http://localhost:3000/api/v1/user/login', {
-    //         method: 'POST',
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //         body: JSON.stringify({ ...data })
-    //     })
+        
+        event.preventDefault()
+        
+        
+        const emailValue = (document.getElementById('email') as HTMLInputElement).value
+        const passwordValue = (document.getElementById('password') as HTMLInputElement).value
+        
+        if(!emailValue || !passwordValue){
+            return
+        }
+
+
+        try {
+            const responseFromServer = await fetch('http://localhost:3000/api/v1/user/login', {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ email:emailValue, password: passwordValue   })
+            })
+
+            const token = await responseFromServer.json()
+            console.log(token)
+        } catch(err) {
+            console.log(err)
+        }
+     
     }
 }

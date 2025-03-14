@@ -1,0 +1,11 @@
+.landing__main {
+    align-items: center;
+    justify-content: center;
+    background-blend-mode: overlay;
+    background-color: rgba($color: #000000, $alpha: 0.7);
+    figure {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+    }
+}
