@@ -1,0 +1,37 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css";
+
+
+.tearoom-main {
+    min-height: 100vh;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("/assets/bg.jpg");
+}
+
+#login-main {
+
+    & > section:first-of-type {
+        width: 400px;
+
+        form section {
+            display:flex;
+            article {
+                margin-block: 20px;
+            }
+
+            
+            margin-block: 10px;
+        }
+
+        form section:first-of-type {
+            flex-direction: column;
+        }
+
+        form section:last-of-type {
+            justify-content: space-between;
+        }
+    }
+}
