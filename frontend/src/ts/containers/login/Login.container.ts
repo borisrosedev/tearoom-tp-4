@@ -1,7 +1,7 @@
 
 
 
-class LoginContainer {
+export default class LoginContainer {
 
     constructor() {
         const loginForm = document.getElementById('login-form')

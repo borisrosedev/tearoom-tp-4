@@ -1,3 +1,4 @@
+import LoginContainer from "./src/ts/containers/login/Login.container"
 import loginPage from "./src/ts/ui/pages/login/login.page"
 import './styles.scss'
 
@@ -10,6 +11,7 @@ const router = function (h:string ){
     switch(h){
         case "":
             root.innerHTML += loginPage()
+            new LoginContainer()
             break;
         default:
             break;
